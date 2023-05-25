@@ -46,7 +46,7 @@ public class KmlHandler extends XmlHandler
 			_insideCoordinates = true;
 			_coordinates = null;
 		}
-		else if (tagName.equals("gx:track"))
+		else if (tagName.equals("gx:track") || tagName.equals("track"))
 		{
 			_insideGxTrack = true;
 		}
@@ -92,13 +92,13 @@ public class KmlHandler extends XmlHandler
 			else
 				_whenList.add(_value);
 		}
-		else if (tagName.equals("gx:coord"))
+		else if (tagName.equals("gx:coord") || tagName.equals("coord"))
 		{
 			if (_insideGxTrack) {
 				_whereList.add(_value);
 			}
 		}
-		else if (tagName.equals("gx:track"))
+		else if (tagName.equals("gx:track") || tagName.equals("track"))
 		{
 			processGxTrack();
 			_insideGxTrack = false;
